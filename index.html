@@ -6,7 +6,10 @@
 <title>Sabor &amp; Fuego Latin Fusion | Restaurante peruano en Tampa, FL</title>
 <meta name="description" content="Restaurante peruano y de fusión latina en Tampa: ceviche, lomo saltado y arroz con mariscos. 4.9★ con 558 reseñas en Google. Catering y eventos. Ordena en línea.">
 <link rel="canonical" href="https://lmanzano86-ui.github.io/demo-sabor-and-fuego/">
-<meta name="theme-color" content="#1f1d1d">
+<meta name="theme-color" content="#17130f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="icon" type="image/webp" href="imgs/logo.webp">
 <meta property="og:title" content="Sabor &amp; Fuego Latin Fusion | Restaurante peruano en Tampa, FL">
 <meta property="og:description" content="Sabor peruano auténtico en Tampa: ceviche, saltados y mariscos. 4.9★ con 558 reseñas en Google. Catering corporativo y la Jarana Criolla cada mes.">
@@ -41,55 +44,70 @@
 }
 </script>
 <style>
+  :root {
+    --negro: #17130f; --tinta: #262019; --rojo: #b83235; --rojo2: #8f1f22;
+    --dorado: #f5b921; --crema: #faf5ec; --papel: #fffdf8; --gris: #7a6f5e;
+    --linea: #f0e4cd; --sombra: 0 10px 30px rgba(23,19,15,.10);
+  }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: "Segoe UI", Arial, Helvetica, sans-serif; background: #f7f2e9; color: #26221e; line-height: 1.5; }
-  .wrap { max-width: 640px; margin: 0 auto; background: #fffdf8; box-shadow: 0 0 24px rgba(31,29,29,.12); }
-  header { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: #fffdf8; border-bottom: 4px solid #b83235; }
-  header img { width: 56px; height: auto; flex: none; }
+  ::selection { background: var(--dorado); color: var(--negro); }
+  body { font-family: "Inter", "Segoe UI", Arial, Helvetica, sans-serif; background: #14100c; color: var(--tinta); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 640px; margin: 0 auto; background: var(--crema); box-shadow: 0 0 60px rgba(0,0,0,.5); overflow: hidden; }
+  h1, h2, .resenas .num, .plato .precio { font-family: "Fraunces", Georgia, "Times New Roman", serif; }
+  header { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: rgba(255,253,248,.94); box-shadow: 0 1px 0 rgba(23,19,15,.07), 0 8px 24px rgba(23,19,15,.06); }
+  header img { width: 54px; height: auto; flex: none; border-radius: 10px; }
   .hname { flex: 1; min-width: 0; }
-  .hname b { display: block; font-size: 15px; color: #1f1d1d; line-height: 1.15; white-space: nowrap; }
-  .hname span { font-size: 11px; color: #b83235; font-weight: 700; letter-spacing: .6px; white-space: nowrap; }
-  .lang { display: flex; flex: none; width: 96px; border: 2px solid #1f1d1d; border-radius: 20px; overflow: hidden; }
-  .lang button { flex: 1; border: 0; background: #fff; color: #1f1d1d; font-weight: 700; padding: 6px 0; font-size: 13px; cursor: pointer; text-align: center; }
-  .lang button.activo { background: #1f1d1d; color: #f5b921; }
+  .hname b { display: block; font-family: "Fraunces", Georgia, serif; font-size: 17px; font-weight: 700; color: var(--negro); line-height: 1.1; white-space: nowrap; }
+  .hname span { font-size: 10.5px; color: var(--rojo); font-weight: 800; letter-spacing: 1.6px; white-space: nowrap; }
+  .lang { display: flex; flex: none; width: 92px; border: 1.5px solid var(--negro); border-radius: 999px; overflow: hidden; background: #fff; }
+  .lang button { flex: 1; border: 0; background: transparent; color: var(--negro); font-weight: 800; padding: 6px 0; font-size: 12.5px; cursor: pointer; text-align: center; }
+  .lang button.activo { background: var(--negro); color: var(--dorado); }
   .hero { position: relative; }
-  .hero img.fondo { width: 100%; height: auto; display: block; }
-  .hero .velo { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(31,29,29,.25), rgba(31,29,29,.82)); display: flex; flex-direction: column; justify-content: flex-end; padding: 18px; }
-  .hero h1 { color: #fff; font-size: 27px; line-height: 1.15; text-shadow: 0 2px 8px rgba(0,0,0,.5); }
-  .hero h1 .amarillo { color: #f5b921; }
-  .hero p { color: #f3ead9; font-size: 15px; margin-top: 6px; }
-  .rating { display: inline-block; background: #f5b921; color: #1f1d1d; font-weight: 800; border-radius: 16px; padding: 3px 11px; font-size: 13.5px; margin-bottom: 8px; align-self: flex-start; }
-  .ctas { display: flex; gap: 8px; flex-wrap: wrap; padding: 14px 16px; background: #1f1d1d; }
-  .btn { flex: 1; min-width: 100px; text-align: center; text-decoration: none; font-weight: 800; font-size: 14.5px; padding: 12px 8px; border-radius: 10px; }
-  .btn.rojo { background: #b83235; color: #fff; }
-  .btn.dorado { background: #f5b921; color: #1f1d1d; }
-  .btn.borde { background: transparent; color: #fff; border: 2px solid #f5b921; }
-  section { padding: 22px 18px 6px; }
-  h2 { font-size: 21px; color: #1f1d1d; border-left: 6px solid #b83235; padding-left: 10px; margin-bottom: 6px; }
-  h2 .sub { display: block; font-size: 13px; color: #b83235; font-weight: 700; letter-spacing: .4px; margin-top: 2px; }
-  p.txt { font-size: 15px; margin: 8px 0; }
-  .foto { width: 100%; height: auto; border-radius: 12px; display: block; margin: 10px 0; }
-  .platos { display: flex; flex-direction: column; gap: 8px; margin: 10px 0; }
-  .plato { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; background: #fdf6ec; border: 1px solid #f0d9a8; border-radius: 10px; padding: 10px 12px; }
-  .plato b { font-size: 15px; color: #1f1d1d; }
-  .plato small { display: block; color: #6d6558; font-size: 12.5px; }
-  .plato .precio { font-size: 17px; font-weight: 800; color: #b83235; white-space: nowrap; }
-  .destacado { background: #1f1d1d; color: #f3ead9; border-radius: 12px; padding: 16px; margin: 12px 0; }
-  .destacado h3 { color: #f5b921; font-size: 17px; margin-bottom: 6px; }
+  .hero img.fondo { width: 100%; height: 500px; object-fit: cover; display: block; }
+  .hero .velo { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(23,19,15,.28) 0%, rgba(23,19,15,0) 34%, rgba(23,19,15,.62) 68%, rgba(23,19,15,.94) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 22px 20px 24px; }
+  .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+  .nuevo { display: inline-block; background: linear-gradient(120deg, var(--rojo), #e0642a); color: #fff; font-weight: 800; font-size: 12px; letter-spacing: .4px; border-radius: 999px; padding: 5px 12px; box-shadow: 0 6px 16px rgba(184,50,53,.45); }
+  .rating { display: inline-block; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.35); color: #fff; font-weight: 700; border-radius: 999px; padding: 4px 12px; font-size: 13px; }
+  .hero h1 { color: #fff; font-size: 36px; font-weight: 900; line-height: 1.08; letter-spacing: -.2px; text-shadow: 0 3px 14px rgba(0,0,0,.45); }
+  .hero h1 .amarillo { color: var(--dorado); }
+  .hero p { color: #f6edda; font-size: 15.5px; margin-top: 9px; max-width: 46ch; }
+  .ctas { display: flex; gap: 9px; flex-wrap: wrap; padding: 18px 16px 4px; }
+  .btn { flex: 1; min-width: 100px; text-align: center; text-decoration: none; font-weight: 800; font-size: 14.5px; padding: 13px 10px; border-radius: 999px; transition: transform .15s ease, box-shadow .15s ease; }
+  .btn.rojo { background: linear-gradient(135deg, #cd4043, var(--rojo2)); color: #fff; box-shadow: 0 10px 22px rgba(184,50,53,.35); }
+  .btn.dorado { background: linear-gradient(135deg, #ffc93c, #eda40a); color: var(--negro); box-shadow: 0 10px 22px rgba(245,185,33,.35); }
+  .btn.borde { background: #fff; color: var(--negro); border: 1.5px solid #e3d7c1; box-shadow: 0 4px 14px rgba(23,19,15,.06); }
+  section { padding: 32px 18px 8px; }
+  h2 { display: flex; flex-direction: column-reverse; font-size: 27px; font-weight: 700; color: var(--negro); line-height: 1.15; margin-bottom: 10px; }
+  h2::after { content: ""; width: 46px; height: 4px; border-radius: 2px; background: linear-gradient(90deg, var(--rojo), var(--dorado)); margin-top: 10px; }
+  h2 .sub { display: block; font-family: "Inter", sans-serif; font-size: 11px; color: var(--rojo); font-weight: 800; letter-spacing: 2.2px; margin-bottom: 5px; }
+  p.txt { font-size: 15px; margin: 9px 0; color: #3d352a; }
+  .foto { width: 100%; height: auto; border-radius: 18px; display: block; margin: 12px 0; box-shadow: var(--sombra); }
+  .arte { background: radial-gradient(120% 90% at 50% 0%, #2b2015 0%, var(--negro) 62%); border-radius: 20px; padding: 22px 12px 14px; margin: 12px 0; display: flex; justify-content: center; box-shadow: var(--sombra); }
+  .arte img { width: 100%; max-width: 320px; height: auto; display: block; }
+  .video-wrap { text-align: center; margin: 22px 18px 2px; }
+  .video-wrap video { width: 100%; max-width: 340px; aspect-ratio: 9 / 16; border-radius: 20px; display: block; margin: 0 auto; background: #000; box-shadow: 0 22px 48px rgba(23,19,15,.35); }
+  .video-wrap p { font-size: 12.5px; color: var(--gris); margin: 10px auto 0; max-width: 46ch; }
+  .platos { display: flex; flex-direction: column; gap: 9px; margin: 12px 0; }
+  .plato { display: flex; justify-content: space-between; align-items: center; gap: 12px; background: #fff; border: 1px solid var(--linea); border-radius: 16px; padding: 12px 15px; box-shadow: 0 3px 12px rgba(23,19,15,.05); }
+  .plato b { font-size: 15px; color: var(--negro); }
+  .plato small { display: block; color: var(--gris); font-size: 12.5px; margin-top: 1px; }
+  .plato .precio { font-size: 19px; font-weight: 700; color: var(--rojo); white-space: nowrap; }
+  .destacado { background: linear-gradient(160deg, #2a2016, var(--negro)); color: #f3ead9; border: 1px solid rgba(245,185,33,.35); border-radius: 18px; padding: 18px; margin: 14px 0; box-shadow: var(--sombra); }
+  .destacado h3 { color: var(--dorado); font-size: 17px; margin-bottom: 6px; }
   .destacado p { font-size: 14.5px; }
-  .resenas { text-align: center; background: #fdf6ec; border: 1px solid #f0d9a8; border-radius: 12px; padding: 16px; margin: 12px 0; }
-  .resenas .num { font-size: 40px; font-weight: 800; color: #b83235; }
-  .resenas .estrellas { color: #f5b921; font-size: 22px; letter-spacing: 3px; }
-  table.horario { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 14.5px; }
-  table.horario td { padding: 6px 8px; border-bottom: 1px solid #eee2cc; }
-  table.horario td:last-child { text-align: right; font-weight: 700; }
-  .visita { display: flex; gap: 14px; align-items: flex-start; margin: 10px 0; }
-  .visita .qr { width: 110px; text-align: center; font-size: 11.5px; color: #6d6558; }
-  .visita .qr img { width: 110px; height: 110px; border: 1px solid #e7dfd2; border-radius: 8px; }
+  .resenas { text-align: center; background: #fff; border: 1px solid var(--linea); border-radius: 18px; padding: 22px 18px; margin: 12px 0; box-shadow: var(--sombra); }
+  .resenas .num { font-size: 54px; font-weight: 900; color: var(--negro); line-height: 1; }
+  .resenas .estrellas { color: var(--dorado); font-size: 23px; letter-spacing: 4px; margin: 4px 0 2px; }
+  table.horario { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 14.5px; }
+  table.horario td { padding: 9px 6px; border-bottom: 1px dashed #e7dcc4; }
+  table.horario td:last-child { text-align: right; font-weight: 800; color: var(--negro); }
+  .visita { display: flex; gap: 14px; align-items: flex-start; margin: 12px 0; }
+  .visita .qr { width: 110px; text-align: center; font-size: 11.5px; color: var(--gris); }
+  .visita .qr img { width: 110px; height: 110px; border: 1px solid #e7dfd2; border-radius: 12px; }
   .visita .dir { flex: 1; font-size: 15px; }
-  footer { background: #1f1d1d; color: #e9e2d5; padding: 20px 18px; margin-top: 22px; font-size: 13.5px; }
-  footer b { color: #f5b921; }
-  footer a { color: #f5b921; text-decoration: none; font-weight: 700; }
+  footer { background: var(--negro); color: #e9e2d5; padding: 24px 18px; margin-top: 26px; font-size: 13.5px; border-top: 4px solid var(--dorado); }
+  footer b { color: var(--dorado); }
+  footer a { color: var(--dorado); text-decoration: none; font-weight: 700; }
   footer .credito { margin-top: 12px; font-size: 12px; color: #a89f8f; }
 </style>
 </head>
@@ -111,7 +129,10 @@
 <div class="hero">
   <img class="fondo" src="imgs/mesa.webp" alt="Mesa servida con platos peruanos de Sabor &amp; Fuego" width="500" height="400" fetchpriority="high">
   <div class="velo">
-    <span class="rating">★ 4.9 · 558 <span data-es="reseñas en Google" data-en="Google reviews">reseñas en Google</span></span>
+    <div class="chips">
+      <span class="nuevo" data-es="🔥 Recién abierto · Enero 2026" data-en="🔥 Now open · January 2026">🔥 Recién abierto · Enero 2026</span>
+      <span class="rating">★ 4.9 · 558 <span data-es="reseñas en Google" data-en="Google reviews">reseñas en Google</span></span>
+    </div>
     <h1 data-es="El sabor del Perú, con fuego latino, en Tampa" data-en="The flavor of Peru, with Latin fire, in Tampa">El sabor del Perú, <span class="amarillo">con fuego latino</span>, en Tampa</h1>
     <p data-es="Ceviche fresco, saltados al wok y mariscos, en un ambiente familiar que te hace sentir en casa." data-en="Fresh ceviche, wok-fired saltados and seafood, in a family atmosphere that feels like home.">Ceviche fresco, saltados al wok y mariscos, en un ambiente familiar que te hace sentir en casa.</p>
   </div>
@@ -121,6 +142,11 @@
   <a class="btn rojo" href="tel:+18133971097" data-es="Llamar ahora" data-en="Call now">Llamar ahora</a>
   <a class="btn dorado" href="https://maps.app.goo.gl/NjCPNfhofA2DVWV66" target="_blank" rel="noopener" data-es="Cómo llegar" data-en="Get directions">Cómo llegar</a>
   <a class="btn borde" href="https://order.toasttab.com/online/sabor-fuego-latin-fusion-1001-north-mac-dill-avenue" target="_blank" rel="noopener" data-es="Ordenar en línea" data-en="Order online">Ordenar en línea</a>
+</div>
+
+<div class="video-wrap">
+  <video src="imgs/video-restaurante.mp4" poster="imgs/video-poster.webp" autoplay muted loop playsinline controls preload="metadata" width="720" height="1280"></video>
+  <p data-es="Así se vive Sabor &amp; Fuego por dentro: nuestra cocina y nuestros murales peruanos." data-en="This is Sabor &amp; Fuego from the inside: our kitchen and our Peruvian murals.">Así se vive Sabor &amp; Fuego por dentro: nuestra cocina y nuestros murales peruanos.</p>
 </div>
 
 <section>
@@ -164,7 +190,9 @@
 
 <section>
   <h2><span data-es="La tiendita peruana" data-en="The Peruvian corner store">La tiendita peruana</span><span class="sub" data-es="UN PEDACITO DEL PERÚ EN TAMPA" data-en="A LITTLE PIECE OF PERU IN TAMPA">UN PEDACITO DEL PERÚ EN TAMPA</span></h2>
-  <img class="foto" src="imgs/llama.webp" alt="Llama de colores, arte peruano del restaurante" width="900" height="720" loading="lazy">
+  <div class="arte">
+    <img src="imgs/llama.webp?v=2" alt="Llama de colores completa, arte peruano del restaurante" width="760" height="1116" loading="lazy">
+  </div>
   <p class="txt" data-es="Dentro del restaurante encuentras productos traídos del Perú difíciles de hallar en Tampa: golosinas, condimentos, helados D'Onofrio, bebidas y artesanía. También puedes pedir varios de ellos en línea, en la sección de tienda de nuestro menú de pedidos." data-en="Inside the restaurant you'll find products brought from Peru that are hard to find in Tampa: sweets, seasonings, D'Onofrio ice cream, drinks and crafts. You can also order several of them online, in the store section of our ordering menu.">Dentro del restaurante encuentras productos traídos del Perú difíciles de hallar en Tampa: golosinas, condimentos, helados D'Onofrio, bebidas y artesanía. También puedes pedir varios de ellos en línea, en la sección de tienda de nuestro menú de pedidos.</p>
 </section>
 

@@ -9,7 +9,7 @@
 <meta name="theme-color" content="#17130f">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="icon" type="image/webp" href="imgs/logo.webp">
 <meta property="og:title" content="Sabor &amp; Fuego Latin Fusion | Restaurante peruano en Tampa, FL">
 <meta property="og:description" content="Sabor peruano auténtico en Tampa: ceviche, saltados y mariscos. 4.9★ con 558 reseñas en Google. Catering corporativo y la Jarana Criolla cada mes.">
@@ -45,70 +45,89 @@
 </script>
 <style>
   :root {
-    --negro: #17130f; --tinta: #262019; --rojo: #b83235; --rojo2: #8f1f22;
-    --dorado: #f5b921; --crema: #faf5ec; --papel: #fffdf8; --gris: #7a6f5e;
-    --linea: #f0e4cd; --sombra: 0 10px 30px rgba(23,19,15,.10);
+    --negro: #17130f; --negro2: #100d0a; --tinta: #2a2119; --rojo: #b83235; --rojo-texto: #9c2428;
+    --dorado: #f5b921; --crema: #faf5ec; --papel: #fffdf8; --gris: #655741;
+    --linea: #efe3cb; --sombra: 0 12px 32px rgba(23,19,15,.12);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   ::selection { background: var(--dorado); color: var(--negro); }
-  body { font-family: "Inter", "Segoe UI", Arial, Helvetica, sans-serif; background: #14100c; color: var(--tinta); line-height: 1.55; -webkit-font-smoothing: antialiased; }
-  .wrap { max-width: 640px; margin: 0 auto; background: var(--crema); box-shadow: 0 0 60px rgba(0,0,0,.5); overflow: hidden; }
+  body { font-family: "Manrope", "Segoe UI", Arial, Helvetica, sans-serif; background: var(--negro2); color: var(--tinta); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 640px; margin: 0 auto; background: var(--crema); box-shadow: 0 0 60px rgba(0,0,0,.55); overflow: hidden; }
   h1, h2, .resenas .num, .plato .precio { font-family: "Fraunces", Georgia, "Times New Roman", serif; }
-  header { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: rgba(255,253,248,.94); box-shadow: 0 1px 0 rgba(23,19,15,.07), 0 8px 24px rgba(23,19,15,.06); }
-  header img { width: 54px; height: auto; flex: none; border-radius: 10px; }
+  a, button { -webkit-tap-highlight-color: transparent; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--dorado); outline-offset: 2px; border-radius: 6px; }
+  .franja { height: 10px; background: repeating-linear-gradient(90deg, var(--rojo) 0 26px, var(--dorado) 26px 38px, var(--negro) 38px 64px, #e0642a 64px 76px, var(--dorado) 76px 84px, var(--rojo) 84px 110px); }
+  header { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; gap: 10px; padding: 9px 14px; background: rgba(255,253,248,.96); box-shadow: 0 1px 0 rgba(23,19,15,.07), 0 10px 26px rgba(23,19,15,.07); }
+  header img { width: 52px; height: auto; flex: none; border-radius: 10px; }
   .hname { flex: 1; min-width: 0; }
   .hname b { display: block; font-family: "Fraunces", Georgia, serif; font-size: 17px; font-weight: 700; color: var(--negro); line-height: 1.1; white-space: nowrap; }
-  .hname span { font-size: 10.5px; color: var(--rojo); font-weight: 800; letter-spacing: 1.6px; white-space: nowrap; }
-  .lang { display: flex; flex: none; width: 92px; border: 1.5px solid var(--negro); border-radius: 999px; overflow: hidden; background: #fff; }
-  .lang button { flex: 1; border: 0; background: transparent; color: var(--negro); font-weight: 800; padding: 6px 0; font-size: 12.5px; cursor: pointer; text-align: center; }
+  .hname span { font-size: 10.5px; color: var(--rojo-texto); font-weight: 800; letter-spacing: 1.6px; white-space: nowrap; }
+  .lang { display: flex; flex: none; width: 96px; border: 1.5px solid var(--negro); border-radius: 999px; overflow: hidden; background: #fff; }
+  .lang button { flex: 1; border: 0; background: transparent; color: var(--negro); font-weight: 800; padding: 11px 0; font-size: 13px; cursor: pointer; text-align: center; min-height: 44px; }
   .lang button.activo { background: var(--negro); color: var(--dorado); }
   .hero { position: relative; }
-  .hero img.fondo { width: 100%; height: 500px; object-fit: cover; display: block; }
-  .hero .velo { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(23,19,15,.28) 0%, rgba(23,19,15,0) 34%, rgba(23,19,15,.62) 68%, rgba(23,19,15,.94) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 22px 20px 24px; }
+  .hero img.fondo { width: 100%; height: 540px; object-fit: cover; display: block; }
+  .hero .velo { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(23,19,15,.30) 0%, rgba(23,19,15,0) 32%, rgba(23,19,15,.60) 66%, rgba(23,19,15,.95) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 22px 20px 24px; }
   .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
-  .nuevo { display: inline-block; background: linear-gradient(120deg, var(--rojo), #e0642a); color: #fff; font-weight: 800; font-size: 12px; letter-spacing: .4px; border-radius: 999px; padding: 5px 12px; box-shadow: 0 6px 16px rgba(184,50,53,.45); }
-  .rating { display: inline-block; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.35); color: #fff; font-weight: 700; border-radius: 999px; padding: 4px 12px; font-size: 13px; }
-  .hero h1 { color: #fff; font-size: 36px; font-weight: 900; line-height: 1.08; letter-spacing: -.2px; text-shadow: 0 3px 14px rgba(0,0,0,.45); }
+  .nuevo { display: inline-block; background: linear-gradient(120deg, var(--rojo), #e0642a); color: #fff; font-weight: 800; font-size: 12px; letter-spacing: .4px; border-radius: 999px; padding: 6px 12px; box-shadow: 0 6px 16px rgba(184,50,53,.45); }
+  .rating { display: inline-block; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.38); color: #fff; font-weight: 700; border-radius: 999px; padding: 5px 12px; font-size: 13px; }
+  .hero h1 { color: #fff; font-size: 38px; font-weight: 900; line-height: 1.07; letter-spacing: -.2px; text-shadow: 0 3px 14px rgba(0,0,0,.45); }
   .hero h1 .amarillo { color: var(--dorado); }
   .hero p { color: #f6edda; font-size: 15.5px; margin-top: 9px; max-width: 46ch; }
-  .ctas { display: flex; gap: 9px; flex-wrap: wrap; padding: 18px 16px 4px; }
-  .btn { flex: 1; min-width: 100px; text-align: center; text-decoration: none; font-weight: 800; font-size: 14.5px; padding: 13px 10px; border-radius: 999px; transition: transform .15s ease, box-shadow .15s ease; }
-  .btn.rojo { background: linear-gradient(135deg, #cd4043, var(--rojo2)); color: #fff; box-shadow: 0 10px 22px rgba(184,50,53,.35); }
-  .btn.dorado { background: linear-gradient(135deg, #ffc93c, #eda40a); color: var(--negro); box-shadow: 0 10px 22px rgba(245,185,33,.35); }
-  .btn.borde { background: #fff; color: var(--negro); border: 1.5px solid #e3d7c1; box-shadow: 0 4px 14px rgba(23,19,15,.06); }
-  section { padding: 32px 18px 8px; }
+  .btn { flex: 1; min-width: 100px; min-height: 48px; display: inline-flex; align-items: center; justify-content: center; text-align: center; text-decoration: none; font-weight: 800; font-size: 14.5px; padding: 13px 12px; border-radius: 999px; transition: transform .16s cubic-bezier(.2,.7,.3,1), box-shadow .16s cubic-bezier(.2,.7,.3,1); }
+  .btn:active { transform: scale(.98); }
+  .btn.rojo { background: linear-gradient(135deg, #cd4043, var(--rojo-texto)); color: #fff; box-shadow: 0 10px 22px rgba(184,50,53,.32); }
+  .btn.dorado { background: linear-gradient(135deg, #ffc93c, #eda40a); color: var(--negro); box-shadow: 0 10px 22px rgba(245,185,33,.32); }
+  .btn.borde { background: #fff; color: var(--negro); border: 1.5px solid #ddd0b8; box-shadow: 0 4px 14px rgba(23,19,15,.06); }
+  .hero .btn { flex: none; align-self: stretch; margin-top: 16px; font-size: 15.5px; }
+  .ctas { display: flex; gap: 9px; flex-wrap: wrap; padding: 16px 16px 2px; }
+  section { padding: 34px 18px 10px; }
+  section.oscuro { background: linear-gradient(180deg, #1d1712, var(--negro2)); margin-top: 26px; padding-bottom: 26px; }
   h2 { display: flex; flex-direction: column-reverse; font-size: 27px; font-weight: 700; color: var(--negro); line-height: 1.15; margin-bottom: 10px; }
   h2::after { content: ""; width: 46px; height: 4px; border-radius: 2px; background: linear-gradient(90deg, var(--rojo), var(--dorado)); margin-top: 10px; }
-  h2 .sub { display: block; font-family: "Inter", sans-serif; font-size: 11px; color: var(--rojo); font-weight: 800; letter-spacing: 2.2px; margin-bottom: 5px; }
-  p.txt { font-size: 15px; margin: 9px 0; color: #3d352a; }
+  h2 .sub { display: block; font-family: "Manrope", sans-serif; font-size: 11px; color: var(--rojo-texto); font-weight: 800; letter-spacing: 2.2px; margin-bottom: 5px; }
+  .oscuro h2 { color: #fff; }
+  .oscuro h2 .sub { color: var(--dorado); }
+  .oscuro p.txt { color: #d9cdb4; }
+  p.txt { font-size: 15px; margin: 9px 0; color: #40372a; }
   .foto { width: 100%; height: auto; border-radius: 18px; display: block; margin: 12px 0; box-shadow: var(--sombra); }
   .arte { background: radial-gradient(120% 90% at 50% 0%, #2b2015 0%, var(--negro) 62%); border-radius: 20px; padding: 20px 8px 4px; margin: 12px 0; display: flex; justify-content: center; box-shadow: var(--sombra); }
   .arte img { width: 100%; max-width: 440px; height: auto; display: block; }
-  .video-wrap { text-align: center; margin: 20px 0 0; background: linear-gradient(180deg, #211a13 0%, #100d0a 100%); padding: 0 0 16px; }
+  .video-wrap { text-align: center; margin: 20px 0 0; background: linear-gradient(180deg, #211a13 0%, var(--negro2) 100%); padding: 0 0 16px; }
   .video-wrap video { width: 100%; height: auto; display: block; background: #000; }
   .video-wrap p { font-size: 12.5px; color: #cbbfa8; margin: 12px auto 0; padding: 0 20px; max-width: 52ch; }
   .platos { display: flex; flex-direction: column; gap: 9px; margin: 12px 0; }
   .plato { display: flex; justify-content: space-between; align-items: center; gap: 12px; background: #fff; border: 1px solid var(--linea); border-radius: 16px; padding: 12px 15px; box-shadow: 0 3px 12px rgba(23,19,15,.05); }
   .plato b { font-size: 15px; color: var(--negro); }
   .plato small { display: block; color: var(--gris); font-size: 12.5px; margin-top: 1px; }
-  .plato .precio { font-size: 19px; font-weight: 700; color: var(--rojo); white-space: nowrap; }
+  .plato .precio { font-size: 19px; font-weight: 700; color: var(--rojo-texto); white-space: nowrap; }
+  .oscuro .plato { background: #241c14; border-color: #3d2f1f; box-shadow: none; }
+  .oscuro .plato b { color: #fdf8ec; }
+  .oscuro .plato small { color: #bfae8d; }
+  .oscuro .plato .precio { color: var(--dorado); }
   .destacado { background: linear-gradient(160deg, #2a2016, var(--negro)); color: #f3ead9; border: 1px solid rgba(245,185,33,.35); border-radius: 18px; padding: 18px; margin: 14px 0; box-shadow: var(--sombra); }
   .destacado h3 { color: var(--dorado); font-size: 17px; margin-bottom: 6px; }
   .destacado p { font-size: 14.5px; }
   .resenas { text-align: center; background: #fff; border: 1px solid var(--linea); border-radius: 18px; padding: 22px 18px; margin: 12px 0; box-shadow: var(--sombra); }
   .resenas .num { font-size: 54px; font-weight: 900; color: var(--negro); line-height: 1; }
-  .resenas .estrellas { color: var(--dorado); font-size: 23px; letter-spacing: 4px; margin: 4px 0 2px; }
+  .resenas .estrellas { color: #a86e03; font-size: 23px; letter-spacing: 4px; margin: 4px 0 2px; }
   table.horario { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 14.5px; }
-  table.horario td { padding: 9px 6px; border-bottom: 1px dashed #e7dcc4; }
+  table.horario td { padding: 9px 6px; border-bottom: 1px dashed #e3d6ba; }
   table.horario td:last-child { text-align: right; font-weight: 800; color: var(--negro); }
   .visita { display: flex; gap: 14px; align-items: flex-start; margin: 12px 0; }
   .visita .qr { width: 110px; text-align: center; font-size: 11.5px; color: var(--gris); }
   .visita .qr img { width: 110px; height: 110px; border: 1px solid #e7dfd2; border-radius: 12px; }
   .visita .dir { flex: 1; font-size: 15px; }
-  footer { background: var(--negro); color: #e9e2d5; padding: 24px 18px; margin-top: 26px; font-size: 13.5px; border-top: 4px solid var(--dorado); }
+  footer { background: var(--negro); color: #e9e2d5; padding: 24px 18px; margin-top: 26px; font-size: 13.5px; }
   footer b { color: var(--dorado); }
   footer a { color: var(--dorado); text-decoration: none; font-weight: 700; }
-  footer .credito { margin-top: 12px; font-size: 12px; color: #a89f8f; }
+  footer .credito { margin-top: 12px; font-size: 12px; color: #b3a892; }
+  html.js .revelar { opacity: 0; transform: translateY(14px); transition: opacity .35s cubic-bezier(.2,.7,.3,1), transform .35s cubic-bezier(.2,.7,.3,1); }
+  html.js .revelar.visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html.js .revelar { opacity: 1; transform: none; transition: none; }
+    .btn { transition: none; }
+  }
 </style>
 </head>
 <body>
@@ -121,10 +140,11 @@
     <span>LATIN FUSION · TAMPA</span>
   </div>
   <div class="lang">
-    <button type="button" id="btn-es" class="activo" onclick="setLang('es')">ES</button>
-    <button type="button" id="btn-en" onclick="setLang('en')">EN</button>
+    <button type="button" id="btn-es" class="activo" aria-pressed="true" aria-label="Español" onclick="setLang('es')">ES</button>
+    <button type="button" id="btn-en" aria-pressed="false" aria-label="English" onclick="setLang('en')">EN</button>
   </div>
 </header>
+<div class="franja" aria-hidden="true"></div>
 
 <div class="hero">
   <img class="fondo" src="imgs/mesa.webp" alt="Mesa servida con platos peruanos de Sabor &amp; Fuego" width="500" height="400" fetchpriority="high">
@@ -135,21 +155,21 @@
     </div>
     <h1 data-es="El sabor del Perú, con fuego latino, en Tampa" data-en="The flavor of Peru, with Latin fire, in Tampa">El sabor del Perú, <span class="amarillo">con fuego latino</span>, en Tampa</h1>
     <p data-es="Ceviche fresco, saltados al wok y mariscos, en un ambiente familiar que te hace sentir en casa." data-en="Fresh ceviche, wok-fired saltados and seafood, in a family atmosphere that feels like home.">Ceviche fresco, saltados al wok y mariscos, en un ambiente familiar que te hace sentir en casa.</p>
+    <a class="btn dorado" href="https://order.toasttab.com/online/sabor-fuego-latin-fusion-1001-north-mac-dill-avenue" target="_blank" rel="noopener" data-es="Ordenar en línea" data-en="Order online">Ordenar en línea</a>
   </div>
 </div>
 
 <div class="ctas">
   <a class="btn rojo" href="tel:+18133971097" data-es="Llamar ahora" data-en="Call now">Llamar ahora</a>
-  <a class="btn dorado" href="https://maps.app.goo.gl/NjCPNfhofA2DVWV66" target="_blank" rel="noopener" data-es="Cómo llegar" data-en="Get directions">Cómo llegar</a>
-  <a class="btn borde" href="https://order.toasttab.com/online/sabor-fuego-latin-fusion-1001-north-mac-dill-avenue" target="_blank" rel="noopener" data-es="Ordenar en línea" data-en="Order online">Ordenar en línea</a>
+  <a class="btn borde" href="https://maps.app.goo.gl/NjCPNfhofA2DVWV66" target="_blank" rel="noopener" data-es="Cómo llegar" data-en="Get directions">Cómo llegar</a>
 </div>
 
 <div class="video-wrap">
-  <video src="imgs/video-restaurante.mp4" poster="imgs/video-poster.webp" autoplay muted loop playsinline controls preload="metadata" width="720" height="1280"></video>
+  <video aria-label="Video del interior del restaurante Sabor &amp; Fuego" src="imgs/video-restaurante.mp4" poster="imgs/video-poster.webp" autoplay muted loop playsinline controls preload="metadata" width="720" height="1280"></video>
   <p data-es="Así se vive Sabor &amp; Fuego por dentro: nuestra cocina y nuestros murales peruanos." data-en="This is Sabor &amp; Fuego from the inside: our kitchen and our Peruvian murals.">Así se vive Sabor &amp; Fuego por dentro: nuestra cocina y nuestros murales peruanos.</p>
 </div>
 
-<section>
+<section class="revelar">
   <h2><span data-es="Especialidades de la casa" data-en="House specialties">Especialidades de la casa</span><span class="sub" data-es="PRECIOS REALES DE NUESTRO MENÚ" data-en="REAL PRICES FROM OUR MENU">PRECIOS REALES DE NUESTRO MENÚ</span></h2>
   <img class="foto" src="imgs/ceviche.webp" alt="Ceviche peruano con camote, servido en Sabor &amp; Fuego" width="900" height="720" loading="lazy">
   <div class="platos">
@@ -160,7 +180,7 @@
   </div>
 </section>
 
-<section>
+<section class="oscuro revelar">
   <h2><span data-es="Menú destacado" data-en="Featured menu">Menú destacado</span><span class="sub" data-es="DEL WOK, LA PARRILLA Y EL MAR" data-en="FROM THE WOK, THE GRILL AND THE SEA">DEL WOK, LA PARRILLA Y EL MAR</span></h2>
   <img class="foto" src="imgs/platos.webp" alt="Arroz chaufa, sopa de mariscos y causa, platos de Sabor &amp; Fuego" width="900" height="720" loading="lazy">
   <div class="platos">
@@ -177,7 +197,7 @@
   <a class="btn rojo" style="display:block" href="https://order.toasttab.com/online/sabor-fuego-latin-fusion-1001-north-mac-dill-avenue" target="_blank" rel="noopener" data-es="Ver menú completo y ordenar" data-en="See the full menu and order">Ver menú completo y ordenar</a>
 </section>
 
-<section>
+<section class="revelar">
   <h2><span data-es="Catering y eventos" data-en="Catering and events">Catering y eventos</span><span class="sub" data-es="PARA OFICINAS, FIESTAS Y CELEBRACIONES" data-en="FOR OFFICES, PARTIES AND CELEBRATIONS">PARA OFICINAS, FIESTAS Y CELEBRACIONES</span></h2>
   <img class="foto" src="imgs/bebidas.webp" alt="Vino y cerveza para brindar en eventos de Sabor &amp; Fuego" width="900" height="720" loading="lazy">
   <p class="txt" data-es="Nuestro catering corporativo ya atiende almuerzos de oficina en Tampa, con reseñas que destacan la comida y el trato. Pide tu cotización por teléfono y la preparamos a tu medida: bandejas peruanas, almuerzos en caja y menú para grupos." data-en="Our corporate catering already serves office lunches across Tampa, with reviews praising the food and the service. Call us for a quote tailored to you: Peruvian party trays, boxed lunches and group menus.">Nuestro catering corporativo ya atiende almuerzos de oficina en Tampa, con reseñas que destacan la comida y el trato. Pide tu cotización por teléfono y la preparamos a tu medida: bandejas peruanas, almuerzos en caja y menú para grupos.</p>
@@ -188,7 +208,7 @@
   <a class="btn dorado" style="display:block" href="tel:+18133971097" data-es="Pedir cotización de catering" data-en="Request a catering quote">Pedir cotización de catering</a>
 </section>
 
-<section>
+<section class="revelar">
   <h2><span data-es="La tiendita peruana" data-en="The Peruvian corner store">La tiendita peruana</span><span class="sub" data-es="UN PEDACITO DEL PERÚ EN TAMPA" data-en="A LITTLE PIECE OF PERU IN TAMPA">UN PEDACITO DEL PERÚ EN TAMPA</span></h2>
   <div class="arte">
     <img src="imgs/llama.webp?v=3" alt="Llama de colores completa, arte peruano del restaurante" width="860" height="1775" loading="lazy">
@@ -196,7 +216,7 @@
   <p class="txt" data-es="Dentro del restaurante encuentras productos traídos del Perú difíciles de hallar en Tampa: golosinas, condimentos, helados D'Onofrio, bebidas y artesanía. También puedes pedir varios de ellos en línea, en la sección de tienda de nuestro menú de pedidos." data-en="Inside the restaurant you'll find products brought from Peru that are hard to find in Tampa: sweets, seasonings, D'Onofrio ice cream, drinks and crafts. You can also order several of them online, in the store section of our ordering menu.">Dentro del restaurante encuentras productos traídos del Perú difíciles de hallar en Tampa: golosinas, condimentos, helados D'Onofrio, bebidas y artesanía. También puedes pedir varios de ellos en línea, en la sección de tienda de nuestro menú de pedidos.</p>
 </section>
 
-<section>
+<section class="revelar">
   <h2><span data-es="Lo que dice Tampa de nosotros" data-en="What Tampa says about us">Lo que dice Tampa de nosotros</span></h2>
   <div class="resenas">
     <div class="num">4.9</div>
@@ -206,12 +226,12 @@
   </div>
 </section>
 
-<section>
+<section class="revelar">
   <h2><span data-es="Nuestra historia" data-en="Our story">Nuestra historia</span></h2>
   <p class="txt" data-es="Sabor &amp; Fuego nació el 7 de enero de 2026, del sueño de dos hermanos: el chef David Nieves Palma, con más de 24 años de cocina y las recetas que aprendió de su mamá en Lima, y su hermano JP. Su idea fue simple: traer a Tampa el sabor auténtico del Perú, con el fuego y la alegría de la fusión latina. La historia llegó hasta la televisión: FOX 13 Tampa contó cómo este restaurante familiar está dando a conocer la cocina peruana en la ciudad." data-en="Sabor &amp; Fuego opened on January 7, 2026, from the dream of two brothers: chef David Nieves Palma, with over 24 years in the kitchen and the recipes he learned from his mother in Lima, and his brother JP. Their idea was simple: bring Tampa the authentic flavor of Peru, with the fire and joy of Latin fusion. The story even reached television: FOX 13 Tampa featured how this family restaurant is introducing Peruvian cuisine to the city.">Sabor &amp; Fuego nació el 7 de enero de 2026, del sueño de dos hermanos: el chef David Nieves Palma, con más de 24 años de cocina y las recetas que aprendió de su mamá en Lima, y su hermano JP. Su idea fue simple: traer a Tampa el sabor auténtico del Perú, con el fuego y la alegría de la fusión latina. La historia llegó hasta la televisión: FOX 13 Tampa contó cómo este restaurante familiar está dando a conocer la cocina peruana en la ciudad.</p>
 </section>
 
-<section>
+<section class="revelar">
   <h2><span data-es="Visítanos" data-en="Visit us">Visítanos</span></h2>
   <img class="foto" src="imgs/fachada.webp" alt="Fachada de Sabor &amp; Fuego Latin Fusion en MacDill Ave, Tampa" width="900" height="720" loading="lazy">
   <div class="visita">
@@ -233,6 +253,7 @@
   <a class="btn rojo" style="display:block;margin-top:10px" href="https://maps.app.goo.gl/NjCPNfhofA2DVWV66" target="_blank" rel="noopener" data-es="Abrir en Google Maps" data-en="Open in Google Maps">Abrir en Google Maps</a>
 </section>
 
+<div class="franja" aria-hidden="true"></div>
 <footer>
   <p><b>Sabor &amp; Fuego Latin Fusion</b> · 1001 N MacDill Ave Suite A, Tampa, FL 33607 · (813) 397-1097</p>
   <p style="margin-top:8px">
@@ -253,6 +274,8 @@ function setLang(lang) {
   });
   document.getElementById('btn-es').classList.toggle('activo', lang === 'es');
   document.getElementById('btn-en').classList.toggle('activo', lang === 'en');
+  document.getElementById('btn-es').setAttribute('aria-pressed', lang === 'es' ? 'true' : 'false');
+  document.getElementById('btn-en').setAttribute('aria-pressed', lang === 'en' ? 'true' : 'false');
   document.documentElement.lang = lang;
   try { localStorage.setItem('sf-lang', lang); } catch (e) {}
 }
@@ -260,6 +283,18 @@ function setLang(lang) {
   var guardado = 'es';
   try { guardado = localStorage.getItem('sf-lang') || 'es'; } catch (e) {}
   if (guardado === 'en') setLang('en');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var video = document.querySelector('.video-wrap video');
+  if (reduce && video) { video.removeAttribute('autoplay'); video.pause(); }
+  if (!reduce && 'IntersectionObserver' in window) {
+    document.documentElement.classList.add('js');
+    var io = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.revelar').forEach(function (el) { io.observe(el); });
+  }
 })();
 </script>
 </body>
